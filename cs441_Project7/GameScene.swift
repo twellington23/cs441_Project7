@@ -21,6 +21,7 @@ class GameScene: SKScene {
     let gameBG = SKSpriteNode(imageNamed: "space")
     let planet = SKSpriteNode(imageNamed: "planet")
     let ship = SKSpriteNode(imageNamed: "ship")
+    let laser = SKSpriteNode(imageNamed: "laser")
     
     override func didMove(to view: SKView) {
         //gameBG.position = CGPoint(x: size.width * 0.2, y: size.width * 0.1)
@@ -34,12 +35,14 @@ class GameScene: SKScene {
         planet.name = "planet"
         addChild(planet)
         
-        ship.position = CGPoint(x: 0, y : -525)
+        ship.position = CGPoint(x: 0, y : -550)
         ship.zPosition = 0
         ship.name = "ship"
         addChild(ship)
         
-//
+        laser.position = CGPoint(x: 0, y: -495)
+        addChild(laser)
+        
 //        // Get label node from scene and store it for use later
 //        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
 //        if let label = self.label {

@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		099785C3239813F600556FD6 /* Agalag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agalag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		099785C3239813F600556FD6 /* Ship Shoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ship Shoot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099785C6239813F600556FD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		099785C8239813F600556FD6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		099785CA239813F600556FD6 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		099785C4239813F600556FD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				099785C3239813F600556FD6 /* Agalag.app */,
+				099785C3239813F600556FD6 /* Ship Shoot.app */,
 				099785DD239813F700556FD6 /* cs441_Project7Tests.xctest */,
 				099785E8239813F700556FD6 /* cs441_Project7UITests.xctest */,
 			);
@@ -151,7 +151,7 @@
 			);
 			name = cs441_Project7;
 			productName = cs441_Project7;
-			productReference = 099785C3239813F600556FD6 /* Agalag.app */;
+			productReference = 099785C3239813F600556FD6 /* Ship Shoot.app */;
 			productType = "com.apple.product-type.application";
 		};
 		099785DC239813F700556FD6 /* cs441_Project7Tests */ = {
@@ -449,7 +449,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cs441.cs441-Project7";
-				PRODUCT_NAME = Agalag;
+				PRODUCT_NAME = "Ship Shoot";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,7 +466,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cs441.cs441-Project7";
-				PRODUCT_NAME = Agalag;
+				PRODUCT_NAME = "Ship Shoot";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
