@@ -57,7 +57,7 @@ class GameScene: SKScene {
         addChild(gameBG1)
         //addChild(gameBG2)
         
-        let duration = CGFloat(4.0)
+        let duration = CGFloat(8.0)
         let move = SKAction.move(to: CGPoint(x: 75, y: -7500), duration: TimeInterval(duration))
         let finish = SKAction.removeFromParent()
         gameBG1.run(SKAction.sequence([move, finish]))
