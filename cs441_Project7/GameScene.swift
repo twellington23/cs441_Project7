@@ -41,7 +41,7 @@ class GameScene: SKScene {
 //        bg3.position = CGPoint(x: 75, y: 0)
 //        addChild(bg3)
         
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(moveBackground), SKAction.wait(forDuration: 1.0)])))
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(moveBackground), SKAction.wait(forDuration: 1.08)])))
         
         planet.position = CGPoint(x: 110, y: 450)
         planet.zPosition = -1
