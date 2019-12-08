@@ -14,23 +14,34 @@ class GameScene: SKScene {
 
     var score = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            scoreLabel.text = "\(score)"
         }
     }
     
-    //let gameBG = SKSpriteNode(imageNamed: "space")
+    let bg1 = SKSpriteNode(imageNamed: "space")
+    let bg2 = SKSpriteNode(imageNamed: "space")
+    let bg3 = SKSpriteNode(imageNamed: "space")
     let planet = SKSpriteNode(imageNamed: "planet")
     let ship = SKSpriteNode(imageNamed: "ship")
     let laser = SKSpriteNode(imageNamed: "laser")
     var touchLocation = CGPoint()
     
     override func didMove(to view: SKView) {
-        //gameBG.position = CGPoint(x: size.width * 0.2, y: size.width * 0.1)
-//        gameBG.position = CGPoint(x: 75, y: 0)
-//        gameBG.zPosition = -1
-//        gameBG.name = "gameBG"
-//        addChild(gameBG)
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(moveBackground), SKAction.wait(forDuration: 0.75)])))
+//        bg1.anchorPoint = CGPoint.zero
+//        bg1.position = CGPoint(x: -400, y: -600)
+//        bg1.zPosition = -3
+//        addChild(bg1)
+//
+//        bg2.anchorPoint = CGPoint.zero
+//        bg2.position = CGPoint(x: -400, y: bg1.size.height - 600)
+//        bg2.zPosition = -3
+//        addChild(bg2)
+        
+//        bg3.zPosition = -4
+//        bg3.position = CGPoint(x: 75, y: 0)
+//        addChild(bg3)
+        
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(moveBackground), SKAction.wait(forDuration: 1.0)])))
         
         planet.position = CGPoint(x: 110, y: 450)
         planet.zPosition = -1
@@ -41,26 +52,28 @@ class GameScene: SKScene {
         ship.zPosition = 0
         ship.name = "ship"
         addChild(ship)
-        
-        laser.position = CGPoint(x: 0, y: -445)
-        addChild(laser)
     }
     
     func moveBackground(){
         let gameBG1 = SKSpriteNode(imageNamed: "space")
-        //let gameBG2 = SKSpriteNode(imageNamed: "space")
+        let gameBG2 = SKSpriteNode(imageNamed: "space")
         
-        gameBG1.zPosition = -2
-        gameBG1.position = CGPoint(x: 75, y: 0)
-        //gameBG2.zPosition = -1
-        //gameBG2.position = CGPoint(x: 75, y: 500)
+        gameBG1.zPosition = -3
+        gameBG1.position = CGPoint(x: 75, y: -500)
+        gameBG2.zPosition = -2
+        gameBG2.position = CGPoint(x: 75, y: 750)
         addChild(gameBG1)
-        //addChild(gameBG2)
+        addChild(gameBG2)
         
         let duration = CGFloat(8.0)
-        let move = SKAction.move(to: CGPoint(x: 75, y: -7500), duration: TimeInterval(duration))
+        
+        let move = SKAction.move(to: CGPoint(x: 75, y: -5000), duration: TimeInterval(duration))
         let finish = SKAction.removeFromParent()
+        let move2 = SKAction.move(to: CGPoint(x: 75, y: -5000), duration: TimeInterval(duration))
+        let finish2 = SKAction.removeFromParent()
+        
         gameBG1.run(SKAction.sequence([move, finish]))
+        gameBG2.run(SKAction.sequence([move2, finish2]))
     }
     
     func moveShip(){
@@ -91,5 +104,20 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+//        bg1.position = CGPoint(x: bg1.position.x, y: bg1.position.y - 5)
+//        bg2.position = CGPoint(x: bg2.position.x, y: bg2.position.y - 5)
+//
+//                    if(bg1.position.y < -bg1.size.height)
+//                    //if(bg1.position.y < -100)
+//                    {
+//                        bg1.position = CGPoint(x: bg2.position.x, y: bg1.position.y + bg2.size.height)
+//                    }
+//
+//                    if(bg2.position.y < -bg2.size.height)
+//                    //if(bg2.position.y < -600)
+//                    {
+//                        bg2.position = CGPoint(x: bg1.position.x, y: bg2.position.y + bg1.size.height)
+//
+//                    }
     }
 }
