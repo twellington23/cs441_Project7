@@ -41,6 +41,12 @@ class GameScene: SKScene {
 //        addChild(bg3)
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(moveBackground), SKAction.wait(forDuration: 1.08)])))
         
+        scoreLabel = SKLabelNode(fontNamed: "Courier")
+        scoreLabel.text = "0"
+        scoreLabel.position = CGPoint(x: -235, y: 575)
+        scoreLabel.zPosition = 5
+        addChild(scoreLabel)
+        
         planet.position = CGPoint(x: 110, y: 450)
         planet.zPosition = -1
         planet.name = "planet"
@@ -53,13 +59,8 @@ class GameScene: SKScene {
         
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
         
-        scoreLabel = SKLabelNode(fontNamed: "Courier")
-        scoreLabel.text = "0"
-        scoreLabel.position = CGPoint(x: -235, y: 575)
-        scoreLabel.zPosition = 5
-        addChild(scoreLabel)
-        
-        spawnEnemies()
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.5)])))
+        //spawnEnemies()
     }
     
     func moveBackground(){
@@ -106,20 +107,29 @@ class GameScene: SKScene {
         let e3 = SKSpriteNode(imageNamed: "renemy")
         let enemy = Int.random(in: 1 ... 3)
         let num = Int.random(in: -5 ... 5)
-        let duration = CGFloat.random(in: 1.5 ... 3.0)
+        let speed = CGFloat.random(in: 2.0 ... 6.0)
         
-        e1.position = CGPoint(x: 50 * num, y: 0)
+        e1.position = CGPoint(x: 50 * num, y: 750)
         e1.zPosition = 1
-        e2.position = CGPoint(x: 50 * num, y: 0)
+        e2.position = CGPoint(x: 50 * num, y: 750)
         e2.zPosition = 1
-        e3.position = CGPoint(x: 50 * num, y: 0)
+        e3.position = CGPoint(x: 50 * num, y: 750)
         e3.zPosition = 1
+        
+        let move1 = SKAction.move(to: CGPoint(x: e1.position.x, y: -750), duration: TimeInterval(speed))
+        let move2 = SKAction.move(to: CGPoint(x: e2.position.x, y: -750), duration: TimeInterval(speed))
+        let move3 = SKAction.move(to: CGPoint(x: e3.position.x, y: -750), duration: TimeInterval(speed))
+        let remove = SKAction.removeFromParent()
+        
         if(enemy == 1){
             addChild(e1)
+            e1.run(SKAction.sequence([move1, remove]))
         }else if(enemy == 2){
             addChild(e2)
+            e2.run(SKAction.sequence([move2, remove]))
         }else{
             addChild(e3)
+            e3.run(SKAction.sequence([move3, remove]))
         }
     }
     
