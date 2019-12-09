@@ -23,7 +23,6 @@ class GameScene: SKScene {
     let bg3 = SKSpriteNode(imageNamed: "space")
     let planet = SKSpriteNode(imageNamed: "planet")
     let ship = SKSpriteNode(imageNamed: "ship")
-    let laser = SKSpriteNode(imageNamed: "laser")
     var touchLocation = CGPoint()
     
     override func didMove(to view: SKView) {
@@ -40,7 +39,6 @@ class GameScene: SKScene {
 //        bg3.zPosition = -4
 //        bg3.position = CGPoint(x: 75, y: 0)
 //        addChild(bg3)
-        
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(moveBackground), SKAction.wait(forDuration: 1.08)])))
         
         planet.position = CGPoint(x: 110, y: 450)
@@ -52,6 +50,8 @@ class GameScene: SKScene {
         ship.zPosition = 0
         ship.name = "ship"
         addChild(ship)
+        
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.5)])))
     }
     
     func moveBackground(){
@@ -81,7 +81,15 @@ class GameScene: SKScene {
     }
     
     func shootLaser(){
-        //let shoot = SKAction.mo
+        let laser = SKSpriteNode(imageNamed: "laser")
+        
+        laser.zPosition = 0
+        laser.position = CGPoint(x: ship.position.x, y: -495)
+        addChild(laser)
+        
+        let shoot = SKAction.move(to: CGPoint(x: ship.position.x, y: 750), duration: 0.4)
+        let remove = SKAction.removeFromParent()
+        laser.run(SKAction.sequence([shoot, remove]))
     }
     
     func spawnEnemies(){
