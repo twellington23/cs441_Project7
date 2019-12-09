@@ -57,13 +57,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ship.position = CGPoint(x: 0, y : -500)
         ship.zPosition = 1
         ship.name = "ship"
+        ship.physicsBody = SKPhysicsBody(rectangleOf: ship.size)
+        ship.physicsBody?.isDynamic = false
         addChild(ship)
         
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
         
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.5)])))
         
-        titleDisplay()
+        //titleDisplay()
     }
     
     func moveBackground(){
@@ -113,6 +115,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         laser.zPosition = 0
         laser.position = CGPoint(x: ship.position.x, y: -495)
+        laser.physicsBody = SKPhysicsBody(rectangleOf: laser.size)
+        laser.physicsBody?.isDynamic = false
         addChild(laser)
         
         let shoot = SKAction.move(to: CGPoint(x: ship.position.x, y: 750), duration: 0.4)
@@ -128,12 +132,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let num = Int.random(in: -4 ... 4)
         let speed = CGFloat.random(in: 2.0 ... 6.0)
         
-        e1.position = CGPoint(x: 60 * num, y: 750)
+        e1.position = CGPoint(x: 65 * num, y: 750)
         e1.zPosition = 1
-        e2.position = CGPoint(x: 60 * num, y: 750)
+        e1.name = "e1"
+        e1.physicsBody = SKPhysicsBody(rectangleOf: e1.size)
+        e1.physicsBody?.isDynamic = false //maybe true??
+        
+        e2.position = CGPoint(x: 65 * num, y: 750)
         e2.zPosition = 1
-        e3.position = CGPoint(x: 60 * num, y: 750)
+        e2.name = "e2"
+        e2.physicsBody = SKPhysicsBody(rectangleOf: e2.size)
+        e2.physicsBody?.isDynamic = false
+        
+        e3.position = CGPoint(x: 65 * num, y: 750)
         e3.zPosition = 1
+        e3.name = "e3"
+        e3.physicsBody = SKPhysicsBody(rectangleOf: e3.size)
+        e3.physicsBody?.isDynamic = false
         
         let move1 = SKAction.move(to: CGPoint(x: e1.position.x, y: -750), duration: TimeInterval(speed))
         let move2 = SKAction.move(to: CGPoint(x: e2.position.x, y: -750), duration: TimeInterval(speed))
@@ -150,6 +165,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(e3)
             e3.run(SKAction.sequence([move3, remove]))
         }
+    }
+    
+//    func collisionBetween(enemy: SKNode, object: SKNode) {
+//        if object.name == "ship" {
+//            destroy(object: enemy)
+//            destroy(object: ship)
+//
+//            score = 0
+//        }
+//    }
+    
+    func destroy(object: SKNode) {
+        object.removeFromParent()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
