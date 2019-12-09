@@ -47,11 +47,11 @@ class GameScene: SKScene {
         addChild(planet)
         
         ship.position = CGPoint(x: 0, y : -500)
-        ship.zPosition = 0
+        ship.zPosition = 1
         ship.name = "ship"
         addChild(ship)
         
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.5)])))
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
     }
     
     func moveBackground(){
