@@ -11,7 +11,6 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
-
     var score = 0 {
         didSet {
             scoreLabel.text = "\(score)"
@@ -28,19 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         physicsWorld.contactDelegate = self
-//        bg1.anchorPoint = CGPoint.zero
-//        bg1.position = CGPoint(x: -400, y: -600)
-//        bg1.zPosition = -3
-//        addChild(bg1)
-//
-//        bg2.anchorPoint = CGPoint.zero
-//        bg2.position = CGPoint(x: -400, y: bg1.size.height - 600)
-//        bg2.zPosition = -3
-//        addChild(bg2)
         
-//        bg3.zPosition = -4
-//        bg3.position = CGPoint(x: 75, y: 0)
-//        addChild(bg3)
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(moveBackground), SKAction.wait(forDuration: 1.08)])))
         
         scoreLabel = SKLabelNode(fontNamed: "Courier")
@@ -117,6 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         laser.position = CGPoint(x: ship.position.x, y: -495)
         laser.physicsBody = SKPhysicsBody(rectangleOf: laser.size)
         laser.physicsBody?.isDynamic = false
+        laser.physicsBody!.contactTestBitMask = laser.physicsBody!.collisionBitMask
         addChild(laser)
         
         let shoot = SKAction.move(to: CGPoint(x: ship.position.x, y: 750), duration: 0.4)
@@ -155,10 +143,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let move3 = SKAction.move(to: CGPoint(x: e3.position.x, y: -750), duration: TimeInterval(speed))
         let remove = SKAction.removeFromParent()
         
-        if(enemy == 1){
+        if enemy == 1{
             addChild(e1)
             e1.run(SKAction.sequence([move1, remove]))
-        }else if(enemy == 2){
+        }else if enemy == 2{
             addChild(e2)
             e2.run(SKAction.sequence([move2, remove]))
         }else{
@@ -167,17 +155,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-//    func collisionBetween(enemy: SKNode, object: SKNode) {
-//        if object.name == "ship" {
-//            destroy(object: enemy)
-//            destroy(object: ship)
+    func collisionBetween(object1: SKNode, object2: SKNode) {
+//        if (object1.name == "laser" && (object2.name == "e1" || object2.name == "e2" || object2.name == "e3")) {
+//            destroy(object: object1)
+//            destroy(object: object2)
 //
-//            score = 0
+//            score += 250
 //        }
-//    }
+        
+//        if object.name == "e1" {
+//            destroy(object: laser)
+//            destroy(object: object)
+//
+//            score += 250
+//        }
+        
+        titleDisplay()
+    }
     
     func destroy(object: SKNode) {
         object.removeFromParent()
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
+
+        if nodeA.name == "laser" {
+            collisionBetween(object1: nodeA, object2: nodeB)
+        } else if nodeB.name == "laser" {
+            collisionBetween(object1: nodeB, object2: nodeA)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
@@ -197,20 +205,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         score += 1
-//        bg1.position = CGPoint(x: bg1.position.x, y: bg1.position.y - 5)
-//        bg2.position = CGPoint(x: bg2.position.x, y: bg2.position.y - 5)
-//
-//                    if(bg1.position.y < -bg1.size.height)
-//                    //if(bg1.position.y < -100)
-//                    {
-//                        bg1.position = CGPoint(x: bg2.position.x, y: bg1.position.y + bg2.size.height)
-//                    }
-//
-//                    if(bg2.position.y < -bg2.size.height)
-//                    //if(bg2.position.y < -600)
-//                    {
-//                        bg2.position = CGPoint(x: bg1.position.x, y: bg2.position.y + bg1.size.height)
-//
-//                    }
     }
 }
