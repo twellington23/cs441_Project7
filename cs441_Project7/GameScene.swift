@@ -58,6 +58,8 @@ class GameScene: SKScene {
         scoreLabel.position = CGPoint(x: -235, y: 575)
         scoreLabel.zPosition = 5
         addChild(scoreLabel)
+        
+        spawnEnemies()
     }
     
     func moveBackground(){
@@ -102,8 +104,23 @@ class GameScene: SKScene {
         let e1 = SKSpriteNode(imageNamed: "benemy")
         let e2 = SKSpriteNode(imageNamed: "oenemy")
         let e3 = SKSpriteNode(imageNamed: "renemy")
+        let enemy = Int.random(in: 1 ... 3)
+        let num = Int.random(in: -5 ... 5)
+        let duration = CGFloat.random(in: 1.5 ... 3.0)
         
-        
+        e1.position = CGPoint(x: 50 * num, y: 0)
+        e1.zPosition = 1
+        e2.position = CGPoint(x: 50 * num, y: 0)
+        e2.zPosition = 1
+        e3.position = CGPoint(x: 50 * num, y: 0)
+        e3.zPosition = 1
+        if(enemy == 1){
+            addChild(e1)
+        }else if(enemy == 2){
+            addChild(e2)
+        }else{
+            addChild(e3)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
