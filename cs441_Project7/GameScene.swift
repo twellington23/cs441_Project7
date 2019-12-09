@@ -52,6 +52,12 @@ class GameScene: SKScene {
         addChild(ship)
         
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
+        
+        scoreLabel = SKLabelNode(fontNamed: "Courier")
+        scoreLabel.text = "0"
+        scoreLabel.position = CGPoint(x: -235, y: 575)
+        scoreLabel.zPosition = 5
+        addChild(scoreLabel)
     }
     
     func moveBackground(){
@@ -93,6 +99,10 @@ class GameScene: SKScene {
     }
     
     func spawnEnemies(){
+        let e1 = SKSpriteNode(imageNamed: "benemy")
+        let e2 = SKSpriteNode(imageNamed: "oenemy")
+        let e3 = SKSpriteNode(imageNamed: "renemy")
+        
         
     }
     
@@ -112,6 +122,7 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        score += 1
 //        bg1.position = CGPoint(x: bg1.position.x, y: bg1.position.y - 5)
 //        bg2.position = CGPoint(x: bg2.position.x, y: bg2.position.y - 5)
 //
