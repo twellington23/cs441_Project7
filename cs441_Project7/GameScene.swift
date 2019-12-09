@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
 
     var score = 0 {
@@ -26,6 +26,8 @@ class GameScene: SKScene {
     var touchLocation = CGPoint()
     
     override func didMove(to view: SKView) {
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        physicsWorld.contactDelegate = self
 //        bg1.anchorPoint = CGPoint.zero
 //        bg1.position = CGPoint(x: -400, y: -600)
 //        bg1.zPosition = -3
@@ -60,6 +62,8 @@ class GameScene: SKScene {
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
         
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.5)])))
+        
+        titleDisplay()
     }
     
     func moveBackground(){
@@ -82,6 +86,22 @@ class GameScene: SKScene {
         
         gameBG1.run(SKAction.sequence([move, finish]))
         gameBG2.run(SKAction.sequence([move2, finish2]))
+    }
+    
+    func titleDisplay(){
+        let wtext = SKSpriteNode(imageNamed: "wtext")
+        let ytext = SKSpriteNode(imageNamed: "ytext")
+        let gtext = SKSpriteNode(imageNamed: "gtext")
+        wtext.position = CGPoint(x: 20, y: 20)
+        wtext.zPosition = 2
+        ytext.position = CGPoint(x: 10, y: 10)
+        ytext.zPosition = 1
+        gtext.position = CGPoint(x: 0, y: 0)
+        gtext.zPosition = 0
+        
+        addChild(wtext)
+        addChild(ytext)
+        addChild(gtext)
     }
     
     func moveShip(){
