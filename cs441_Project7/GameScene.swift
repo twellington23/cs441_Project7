@@ -60,7 +60,6 @@ class GameScene: SKScene {
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
         
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.5)])))
-        //spawnEnemies()
     }
     
     func moveBackground(){
@@ -106,14 +105,14 @@ class GameScene: SKScene {
         let e2 = SKSpriteNode(imageNamed: "oenemy")
         let e3 = SKSpriteNode(imageNamed: "renemy")
         let enemy = Int.random(in: 1 ... 3)
-        let num = Int.random(in: -5 ... 5)
+        let num = Int.random(in: -4 ... 4)
         let speed = CGFloat.random(in: 2.0 ... 6.0)
         
-        e1.position = CGPoint(x: 50 * num, y: 750)
+        e1.position = CGPoint(x: 60 * num, y: 750)
         e1.zPosition = 1
-        e2.position = CGPoint(x: 50 * num, y: 750)
+        e2.position = CGPoint(x: 60 * num, y: 750)
         e2.zPosition = 1
-        e3.position = CGPoint(x: 50 * num, y: 750)
+        e3.position = CGPoint(x: 60 * num, y: 750)
         e3.zPosition = 1
         
         let move1 = SKAction.move(to: CGPoint(x: e1.position.x, y: -750), duration: TimeInterval(speed))
