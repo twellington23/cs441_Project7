@@ -25,8 +25,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let bg3 = SKSpriteNode(imageNamed: "space")
     let planet = SKSpriteNode(imageNamed: "planet")
     let ship = SKSpriteNode(imageNamed: "ship")
+    
     var touchLocation = CGPoint()
     var playing = false
+    var fire = SKAction()
+    var spawn = SKAction()
     
     override func didMove(to view: SKView) {
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
@@ -53,17 +56,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ship.physicsBody!.contactTestBitMask = ship.physicsBody!.collisionBitMask
         addChild(ship)
         
+        fire = SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)]))
+        spawn = SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.0)]))
+        
         if(playing == false){
             resetGame()
         }else{
             startGame()
         }
-        
-//        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
-//
-//        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.0)])))
-        
-        //titleDisplay()
     }
     
     func moveBackground(){
@@ -89,9 +89,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func titleDisplay(){
-//        let wtext = SKSpriteNode(imageNamed: "wtext")
-//        let ytext = SKSpriteNode(imageNamed: "ytext")
-//        let gtext = SKSpriteNode(imageNamed: "gtext")
         wtext.position = CGPoint(x: 20, y: 20)
         wtext.zPosition = 2
         ytext.position = CGPoint(x: 10, y: 10)
@@ -179,12 +176,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         score = 0
         addChild(scoreLabel)
         
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
-        
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.0)])))
+        run(fire, withKey: "pew")
+        run(spawn, withKey: "bad")
     }
     
     func resetGame(){
+        removeAction(forKey: "pew")
+        removeAction(forKey: "bad")
         titleDisplay()
         playing = false
     }
