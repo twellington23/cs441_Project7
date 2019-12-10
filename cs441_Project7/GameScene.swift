@@ -183,6 +183,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func resetGame(){
         removeAction(forKey: "pew")
         removeAction(forKey: "bad")
+        scoreLabel.removeFromParent()
         titleDisplay()
         playing = false
     }
