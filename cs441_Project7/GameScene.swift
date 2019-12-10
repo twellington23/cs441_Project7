@@ -119,7 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let e3 = SKSpriteNode(imageNamed: "renemy")
         let enemy = Int.random(in: 1 ... 3)
         let num = Int.random(in: -4 ... 4)
-        let speed = CGFloat.random(in: 2.0 ... 6.0)
+        let speed = CGFloat.random(in: 1.0 ... 4.0)
         
         e1.position = CGPoint(x: 65 * num, y: 750)
         e1.zPosition = 1
@@ -160,15 +160,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func collisionBetween(laser: SKNode, object: SKNode) {
         if (object.name == "e1" || object.name == "e2" || object.name == "e3") {
-            destroy(object: laser)
+            //destroy(object: laser)
             destroy(object: object)
+            laser.removeFromParent()
 
             score += 250
         }
     }
     
     func destroy(object: SKNode) {
+        let point = CGPoint(x: object.position.x, y: object.position.y)
         object.removeFromParent()
+        
+//        let d1 = SKSpriteNode(imageNamed: "d1")
+//        d1.position = point
+//        d1.zPosition = 1
+//        addChild(d1)
+//        let d2 = SKSpriteNode(imageNamed: "d2")
+//        d2.position = point
+//        d2.zPosition = 1
+//        addChild(d2)
+//        let d3 = SKSpriteNode(imageNamed: "d3")
+//        d3.position = point
+//        d3.zPosition = 1
+//        addChild(d3)
+//
+//        d1.removeFromParent()
+//        d2.removeFromParent()
+//        d3.removeFromParent()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
