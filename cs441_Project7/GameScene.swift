@@ -23,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let planet = SKSpriteNode(imageNamed: "planet")
     let ship = SKSpriteNode(imageNamed: "ship")
     var touchLocation = CGPoint()
+    var playing = false
     
     override func didMove(to view: SKView) {
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
@@ -34,7 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "0"
         scoreLabel.position = CGPoint(x: -235, y: 575)
         scoreLabel.zPosition = 5
-        addChild(scoreLabel)
+//        addChild(scoreLabel)
         
         planet.position = CGPoint(x: 110, y: 450)
         planet.zPosition = -1
@@ -48,9 +49,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ship.physicsBody?.isDynamic = false
         addChild(ship)
         
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
+        if(playing == false){
+            resetGame()
+        }else{
+            startGame()
+        }
         
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.0)])))
+//        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
+//
+//        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.0)])))
         
         //titleDisplay()
     }
@@ -156,7 +163,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func resetGame(){}
+    func startGame(){
+//        scoreLabel = SKLabelNode(fontNamed: "Courier")
+//        scoreLabel.text = "0"
+//        scoreLabel.position = CGPoint(x: -235, y: 575)
+//        scoreLabel.zPosition = 5
+        addChild(scoreLabel)
+        
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
+        
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.0)])))
+    }
+    
+    func resetGame(){
+        titleDisplay()
+        playing = false
+    }
     
     func collisionBetween(laser: SKNode, object: SKNode) {
         if (object.name == "e1" || object.name == "e2" || object.name == "e3") {
@@ -201,7 +223,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches{
+            touchLocation = touch.location(in: self)
+            
+            playing = true
+        }
+    }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches{
