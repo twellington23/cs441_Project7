@@ -105,6 +105,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         laser.physicsBody = SKPhysicsBody(rectangleOf: laser.size)
         laser.physicsBody?.isDynamic = false
         laser.physicsBody!.contactTestBitMask = laser.physicsBody!.collisionBitMask
+        laser.name = "laser"
         addChild(laser)
         
         let shoot = SKAction.move(to: CGPoint(x: ship.position.x, y: 750), duration: 0.4)
@@ -122,21 +123,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         e1.position = CGPoint(x: 65 * num, y: 750)
         e1.zPosition = 1
-        e1.name = "e1"
         e1.physicsBody = SKPhysicsBody(rectangleOf: e1.size)
-        e1.physicsBody?.isDynamic = false //maybe true??
+        e1.physicsBody?.isDynamic = true //maybe true??
+        e1.name = "e1"
         
         e2.position = CGPoint(x: 65 * num, y: 750)
         e2.zPosition = 1
-        e2.name = "e2"
         e2.physicsBody = SKPhysicsBody(rectangleOf: e2.size)
-        e2.physicsBody?.isDynamic = false
+        e2.physicsBody?.isDynamic = true
+        e2.name = "e2"
         
         e3.position = CGPoint(x: 65 * num, y: 750)
         e3.zPosition = 1
-        e3.name = "e3"
         e3.physicsBody = SKPhysicsBody(rectangleOf: e3.size)
-        e3.physicsBody?.isDynamic = false
+        e3.physicsBody?.isDynamic = true
+        e3.name = "e3"
         
         let move1 = SKAction.move(to: CGPoint(x: e1.position.x, y: -750), duration: TimeInterval(speed))
         let move2 = SKAction.move(to: CGPoint(x: e2.position.x, y: -750), duration: TimeInterval(speed))
@@ -155,22 +156,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func collisionBetween(object1: SKNode, object2: SKNode) {
-//        if (object1.name == "laser" && (object2.name == "e1" || object2.name == "e2" || object2.name == "e3")) {
-//            destroy(object: object1)
-//            destroy(object: object2)
-//
-//            score += 250
-//        }
-        
-//        if object.name == "e1" {
-//            destroy(object: laser)
-//            destroy(object: object)
-//
-//            score += 250
-//        }
-        
-        titleDisplay()
+    func resetGame(){}
+    
+    func collisionBetween(laser: SKNode, object: SKNode) {
+        if (object.name == "e1" || object.name == "e2" || object.name == "e3") {
+            destroy(object: laser)
+            destroy(object: object)
+
+            score += 250
+        }
     }
     
     func destroy(object: SKNode) {
@@ -182,9 +176,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard let nodeB = contact.bodyB.node else { return }
 
         if nodeA.name == "laser" {
-            collisionBetween(object1: nodeA, object2: nodeB)
+            collisionBetween(laser: nodeA, object: nodeB)
         } else if nodeB.name == "laser" {
-            collisionBetween(object1: nodeB, object2: nodeA)
+            collisionBetween(laser: nodeB, object: nodeA)
         }
     }
     
