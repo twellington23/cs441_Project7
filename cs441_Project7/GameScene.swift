@@ -23,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let planet = SKSpriteNode(imageNamed: "planet")
     let ship = SKSpriteNode(imageNamed: "ship")
     var touchLocation = CGPoint()
-    var playing = false
+    var playing = true
     
     override func didMove(to view: SKView) {
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
@@ -47,6 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ship.name = "ship"
         ship.physicsBody = SKPhysicsBody(rectangleOf: ship.size)
         ship.physicsBody?.isDynamic = false
+        ship.physicsBody!.contactTestBitMask = ship.physicsBody!.collisionBitMask
         addChild(ship)
         
         if(playing == false){
@@ -168,6 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        scoreLabel.text = "0"
 //        scoreLabel.position = CGPoint(x: -235, y: 575)
 //        scoreLabel.zPosition = 5
+        score = 0
         addChild(scoreLabel)
         
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)])))
@@ -180,13 +182,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playing = false
     }
     
-    func collisionBetween(laser: SKNode, object: SKNode) {
-        if (object.name == "e1" || object.name == "e2" || object.name == "e3") {
+    func collisionBetween(object1: SKNode, object2: SKNode) {
+//        if (object.name == "e1" || object.name == "e2" || object.name == "e3") {
+//            //destroy(object: laser)
+//            destroy(object: object)
+//            laser.removeFromParent()
+//
+//            score += 250
+//        }
+        
+        if (object1.name == "laser" && (object2.name == "e1" || object2.name == "e2" || object2.name == "e3")) {
             //destroy(object: laser)
-            destroy(object: object)
-            laser.removeFromParent()
+            destroy(object: object2)
+            object1.removeFromParent()
 
             score += 250
+        }
+        
+        if (object1.name == "ship" && (object2.name == "e1" || object2.name == "e2" || object2.name == "e3")) {
+            destroy(object:object2)
+            score = 0
         }
     }
     
@@ -217,19 +232,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard let nodeB = contact.bodyB.node else { return }
 
         if nodeA.name == "laser" {
-            collisionBetween(laser: nodeA, object: nodeB)
+            //collisionBetween(laser: nodeA, object: nodeB)
+            collisionBetween(object1: nodeA, object2: nodeB)
         } else if nodeB.name == "laser" {
-            collisionBetween(laser: nodeB, object: nodeA)
+            //collisionBetween(laser: nodeB, object: nodeA)
+            collisionBetween(object1: nodeB, object2: nodeA)
+        }
+        
+        if nodeA.name == "ship" {
+            collisionBetween(object1: nodeA, object2: nodeB)
+        } else if nodeB.name == "ship" {
+            collisionBetween(object1: nodeB, object2: nodeA)
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches{
-            touchLocation = touch.location(in: self)
-            
-            playing = true
-        }
-    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches{
