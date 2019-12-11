@@ -186,6 +186,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.removeFromParent()
         titleDisplay()
         playing = false
+        
+//        ship.position = CGPoint(x: 0, y : -500)
+//        ship.zPosition = 1
+//        ship.name = "ship"
+//        ship.physicsBody = SKPhysicsBody(rectangleOf: ship.size)
+//        ship.physicsBody?.isDynamic = false
+//        ship.physicsBody!.contactTestBitMask = ship.physicsBody!.collisionBitMask
+//        addChild(ship)
     }
     
     func collisionBetween(object1: SKNode, object2: SKNode) {
@@ -197,7 +205,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if (object1.name == "ship" && (object2.name == "e1" || object2.name == "e2" || object2.name == "e3")) {
-            destroy(object:object2)
+            destroy(object: object2)
+            destroy(object: object1)
             //score = 0
             resetGame()
         }
@@ -208,12 +217,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         object.removeFromParent()
         
         if (object.name == "e1" || object.name == "e2" || object.name == "e3") {
-            let d = SKSpriteNode(imageNamed: "d")
-            d.position = point
-            d.zPosition = 1
-            addChild(d)
+            let de = SKSpriteNode(imageNamed: "de")
+            de.position = point
+            de.zPosition = 1
+            addChild(de)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                d.removeFromParent()
+                de.removeFromParent()
+            }
+        }
+        
+        if (object.name == "ship") {
+            let ds = SKSpriteNode(imageNamed: "ds")
+            ds.position = point
+            ds.zPosition = 1
+            addChild(ds)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                ds.removeFromParent()
             }
         }
     }
