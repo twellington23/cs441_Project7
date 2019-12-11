@@ -1,0 +1,424 @@
+commit a7d01e6b3cd2f86e743107727cc86d4c0e09f90c
+Author: twellington23 <42653953+twellington23@users.noreply.github.com>
+Date:   Tue Dec 10 22:50:53 2019 -0500
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d02cb784739b435fbf35fdd4106a7c8a9eb4dbdf
+Author: twellington23 <42653953+twellington23@users.noreply.github.com>
+Date:   Tue Dec 10 22:49:20 2019 -0500
+
+    Update README.md
+
+ README.md | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit 36420beba01bd27aabd74b52eddaec2ac8b94be3
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 21:42:32 2019 -0500
+
+    final final commit
+
+ cs441_Project7/GameScene.swift | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bbe13f11347c41a70b87994c0fd435c8dd934657
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 21:34:56 2019 -0500
+
+    bug fixed ---> final commit
+
+ cs441_Project7/GameScene.swift | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 349e511eb22b4f34993cda8e913242bbcc5b2007
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 21:10:08 2019 -0500
+
+    few small changes, one major bug left
+
+ cs441_Project7/GameScene.swift | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+commit 5b2ac30ddf54efa1d97a1744ce6e27e46e5e20f5
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 20:57:39 2019 -0500
+
+    changed title display
+
+ cs441_Project7/GameScene.swift | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
+
+commit edc21d000e62c058806374ba969c1a53d4822f2d
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 20:20:32 2019 -0500
+
+    cleaned up code
+
+ cs441_Project7/GameScene.swift          | 18 +-----------------
+ cs441_Project7/GameViewController.swift |  4 ++--
+ 2 files changed, 3 insertions(+), 19 deletions(-)
+
+commit 5e1659975cd4e0abd7e8e2130212ac80da0a2478
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 20:11:44 2019 -0500
+
+    previous score is displayed on game reset
+
+ cs441_Project7/GameScene.swift | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+
+commit 8d3f87f724ccfbdb34ce4be6fe96c52ef0a17791
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 20:02:05 2019 -0500
+
+    added previous score variable
+
+ cs441_Project7/GameScene.swift | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit c57591093a945df9bc1ab6da24d849c691b6ce4b
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 19:50:46 2019 -0500
+
+    fixed a few things
+
+ cs441_Project7/GameScene.swift | 38 +++++++++++++++++++++-----------------
+ 1 file changed, 21 insertions(+), 17 deletions(-)
+
+commit fa35d5666f28370a4efee8e2cf8f2773aad912ec
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 19:45:34 2019 -0500
+
+    player ship explodes when hit
+
+ .../{d.imageset => de.imageset}/Contents.json      |   0
+ .../output-onlinepngtools (7).png                  | Bin
+ .../Assets.xcassets/ds.imageset/Contents.json      |  21 ++++++++++++++
+ .../ds.imageset/output-onlinepngtools (7) copy.png | Bin 0 -> 20991 bytes
+ cs441_Project7/GameScene.swift                     |  31 +++++++++++++++++----
+ 5 files changed, 46 insertions(+), 6 deletions(-)
+
+commit dec7a781478b08ead5ee7b1e596b1320f1e3db9e
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 19:37:46 2019 -0500
+
+    enemy ships explode when destroyed
+
+ .../{d1.imageset => d.imageset}/Contents.json      |   0
+ .../output-onlinepngtools (7).png                  | Bin
+ .../d1.imageset/output-onlinepngtools (7).png      | Bin 5145 -> 0 bytes
+ .../Assets.xcassets/d2.imageset/Contents.json      |  21 -----------------
+ .../Assets.xcassets/d3.imageset/Contents.json      |  21 -----------------
+ .../d3.imageset/output-onlinepngtools (7).png      | Bin 8645 -> 0 bytes
+ .../Assets.xcassets/d4.imageset/Contents.json      |  21 -----------------
+ .../d4.imageset/output-onlinepngtools (7).png      | Bin 5141 -> 0 bytes
+ .../Assets.xcassets/d5.imageset/Contents.json      |  21 -----------------
+ .../d5.imageset/output-onlinepngtools (7).png      | Bin 3031 -> 0 bytes
+ cs441_Project7/GameScene.swift                     |  25 ++++++++-------------
+ 11 files changed, 9 insertions(+), 100 deletions(-)
+
+commit 9af6715ab91e862753d8d484aaedd2afe7694d83
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 18:03:54 2019 -0500
+
+    resetting game doesn't break it anymore!!
+
+ cs441_Project7/GameScene.swift | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 2937e03308b4526b07d92962ece91339452c4e87
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 18:01:19 2019 -0500
+
+    resetGame stops firing and spawning enemies
+
+ cs441_Project7/GameScene.swift | 22 ++++++++++------------
+ 1 file changed, 10 insertions(+), 12 deletions(-)
+
+commit 4fd31245cf00c2a00c1b02fe3e9ddce53086ad8f
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 17:19:58 2019 -0500
+
+    game starts on click, resets on death (breaks on starting again)
+
+ cs441_Project7/GameScene.swift | 35 ++++++++++++++++++-----------------
+ 1 file changed, 18 insertions(+), 17 deletions(-)
+
+commit 7852e28e3523810b9db2b2e5f632c4a44e6facbc
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Tue Dec 10 00:42:36 2019 -0500
+
+    getting hit by enemy ship resets points
+
+ cs441_Project7/GameScene.swift | 45 +++++++++++++++++++++++++++++-------------
+ 1 file changed, 31 insertions(+), 14 deletions(-)
+
+commit 73d3a3f758bdfcaee93a24ebdd4e3be1a7d366b0
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 22:41:31 2019 -0500
+
+    working on title screen
+
+ cs441_Project7/GameScene.swift | 38 +++++++++++++++++++++++++++++++++-----
+ 1 file changed, 33 insertions(+), 5 deletions(-)
+
+commit a9df5c028b862c90f17900f3d11ea95a1996a75a
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 22:21:18 2019 -0500
+
+    messing with stuff
+
+ .../Assets.xcassets/d1.imageset/Contents.json      |  21 +++++++++++++++++++
+ .../d1.imageset/output-onlinepngtools (7).png      | Bin 0 -> 5145 bytes
+ .../Assets.xcassets/d2.imageset/Contents.json      |  21 +++++++++++++++++++
+ .../d2.imageset/output-onlinepngtools (7).png      | Bin 0 -> 8574 bytes
+ .../Assets.xcassets/d3.imageset/Contents.json      |  21 +++++++++++++++++++
+ .../d3.imageset/output-onlinepngtools (7).png      | Bin 0 -> 8645 bytes
+ .../Assets.xcassets/d4.imageset/Contents.json      |  21 +++++++++++++++++++
+ .../d4.imageset/output-onlinepngtools (7).png      | Bin 0 -> 5141 bytes
+ .../Assets.xcassets/d5.imageset/Contents.json      |  21 +++++++++++++++++++
+ .../d5.imageset/output-onlinepngtools (7).png      | Bin 0 -> 3031 bytes
+ cs441_Project7/GameScene.swift                     |  23 +++++++++++++++++++--
+ 11 files changed, 126 insertions(+), 2 deletions(-)
+
+commit 7d08bfe57bf3af8eb5e3c06a8888d1a37bcdef33
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 19:45:20 2019 -0500
+
+    adjusted spawn rate of enemy ships
+
+ cs441_Project7/GameScene.swift | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d8cc2ae6bd10a122530d4bb77a425ac829b115b3
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 19:42:25 2019 -0500
+
+    lasers + ships = destroy
+
+ cs441_Project7/GameScene.swift | 42 ++++++++++++++++++------------------------
+ 1 file changed, 18 insertions(+), 24 deletions(-)
+
+commit 0f5659be57101e092f6d11558b41b6f04ef5c8f8
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 17:51:45 2019 -0500
+
+    still working on physics
+
+ cs441_Project7/GameScene.swift | 67 +++++++++++++++++++-----------------------
+ 1 file changed, 30 insertions(+), 37 deletions(-)
+
+commit d61dfc87d8822ead65e655f707f5c4b746f815f5
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 16:54:45 2019 -0500
+
+    working on collision physics
+
+ cs441_Project7/GameScene.swift | 36 ++++++++++++++++++++++++++++++++----
+ 1 file changed, 32 insertions(+), 4 deletions(-)
+
+commit fb9176d673eeff71795a62ed66f7114ead05d34e
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 03:45:01 2019 -0500
+
+    adding title
+
+ .../Assets.xcassets/gtext.imageset/Contents.json   |  21 ++++++++++++++++++++
+ .../gtext.imageset/output-onlinepngtools (4).png   | Bin 0 -> 30240 bytes
+ .../Assets.xcassets/wtext.imageset/Contents.json   |  21 ++++++++++++++++++++
+ .../wtext.imageset/output-onlinepngtools (3).png   | Bin 0 -> 27494 bytes
+ .../Assets.xcassets/ytext.imageset/Contents.json   |  21 ++++++++++++++++++++
+ .../ytext.imageset/output-onlinepngtools (2).png   | Bin 0 -> 30944 bytes
+ cs441_Project7/GameScene.swift                     |  22 ++++++++++++++++++++-
+ 7 files changed, 84 insertions(+), 1 deletion(-)
+
+commit 7629d8658838e213735443037a634535d1d0af3d
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 03:00:37 2019 -0500
+
+    changed some values
+
+ cs441_Project7/GameScene.swift | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+commit a1d4269c3a47901a7f1546c7363dd9bca54fed1a
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 02:56:51 2019 -0500
+
+    enemies travel down screen at random speeds
+
+ cs441_Project7/GameScene.swift | 32 +++++++++++++++++++++-----------
+ 1 file changed, 21 insertions(+), 11 deletions(-)
+
+commit e97a72cf6e2fa15833969adb37ec511426c54155
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 02:37:36 2019 -0500
+
+    random enemies spawn at random x-coordinates
+
+ cs441_Project7/GameScene.swift | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+commit 713fd83133dd8757ca0855cf1ebe0a56cc404b8a
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 01:39:47 2019 -0500
+
+    added scoring
+
+ cs441_Project7/GameScene.swift | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+commit 7fbdcf2132234d645e760e9182ef1ac229aa2676
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 00:44:34 2019 -0500
+
+    added enemy sprites
+
+ .../Assets.xcassets/benemy.imageset/Contents.json  |  21 +++++++++++++++++++++
+ .../Assets.xcassets/benemy.imageset/enemies.png    | Bin 0 -> 6329 bytes
+ .../Assets.xcassets/oenemy.imageset/Contents.json  |  21 +++++++++++++++++++++
+ .../Assets.xcassets/oenemy.imageset/enemies.png    | Bin 0 -> 5098 bytes
+ .../Assets.xcassets/renemy.imageset/Contents.json  |  21 +++++++++++++++++++++
+ .../Assets.xcassets/renemy.imageset/enemies.png    | Bin 0 -> 5389 bytes
+ .../Assets.xcassets/ship.imageset/11.F09).png      | Bin 0 -> 18247 bytes
+ .../Assets.xcassets/ship.imageset/Contents.json    |   2 +-
+ .../Assets.xcassets/ship.imageset/ship.png         | Bin 10607 -> 0 bytes
+ cs441_Project7/GameScene.swift                     |   4 ++--
+ 10 files changed, 66 insertions(+), 3 deletions(-)
+
+commit 229f1d16d326422e2852c41f15b28deb89c61116
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Mon Dec 9 00:15:22 2019 -0500
+
+    ship can shoot lasers
+
+ cs441_Project7/GameScene.swift | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+
+commit f94598f7deeb489f7edc72bb69fa1ab4c98c5db6
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Sun Dec 8 00:52:03 2019 -0500
+
+    little better
+
+ cs441_Project7/GameScene.swift | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f4e78546a428982150e17cc450ac04207bae0ee6
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Sun Dec 8 00:48:33 2019 -0500
+
+    fixed scrolling background (kinda)
+
+ cs441_Project7/GameScene.swift | 64 ++++++++++++++++++++++++++++++------------
+ 1 file changed, 46 insertions(+), 18 deletions(-)
+
+commit 39b9f1abe7f39c3be6258b5ef15f18581452aed4
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Sat Dec 7 22:54:41 2019 -0500
+
+    working on scrolling background
+
+ cs441_Project7/GameScene.swift | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 6cc80192aa18696c6b66413174fbdfd43c9f0225
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Sat Dec 7 22:54:10 2019 -0500
+
+    ship moves laterally with touch
+
+ cs441_Project7.xcodeproj/project.pbxproj |  4 ++
+ cs441_Project7/GameScene.swift           | 76 ++++++++++++++++----------------
+ cs441_Project7/Info.plist                |  2 -
+ 3 files changed, 43 insertions(+), 39 deletions(-)
+
+commit 244e18bad48ae8811dde73211ced7dd35efe5b9e
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Thu Dec 5 20:04:43 2019 -0500
+
+    adding more sprites
+
+ cs441_Project7.xcodeproj/project.pbxproj           |  10 +++++-----
+ .../Assets.xcassets/laser.imageset/Contents.json   |  21 +++++++++++++++++++++
+ .../Assets.xcassets/laser.imageset/laser.png       | Bin 0 -> 1205 bytes
+ cs441_Project7/GameScene.swift                     |   7 +++++--
+ 4 files changed, 31 insertions(+), 7 deletions(-)
+
+commit 4dc34c553de2511acb41fbfb8591f63771a6f492
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Wed Dec 4 13:11:54 2019 -0500
+
+    added sprites
+
+ cs441_Project7.xcodeproj/project.pbxproj           |  10 +++++-----
+ .../AppIcon.appiconset/Contents.json               |   3 ++-
+ .../Assets.xcassets/AppIcon.appiconset/ship.png    | Bin 0 -> 2937 bytes
+ .../Assets.xcassets/ship.imageset/Contents.json    |  21 +++++++++++++++++++++
+ .../Assets.xcassets/ship.imageset/ship.png         | Bin 0 -> 10607 bytes
+ cs441_Project7/Base.lproj/LaunchScreen.storyboard  |  13 +++++++------
+ cs441_Project7/GameScene.swift                     |   6 ++++++
+ 7 files changed, 41 insertions(+), 12 deletions(-)
+
+commit 05c4a4f8c36c76b87432f04fcd5634837503dbfd
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Wed Dec 4 12:29:10 2019 -0500
+
+    added background
+
+ .../Assets.xcassets/planet.imageset/Contents.json  |  21 ++++++
+ .../Assets.xcassets/planet.imageset/planet.png     | Bin 0 -> 43016 bytes
+ ....wseEi.86caa464-e594-4492-9549-9f7de5ca9f66.png | Bin 0 -> 55955 bytes
+ .../Assets.xcassets/space.imageset/Contents.json   |  21 ++++++
+ cs441_Project7/GameScene.sks                       | Bin 4694 -> 4056 bytes
+ cs441_Project7/GameScene.swift                     |  82 ++++++++++-----------
+ cs441_Project7/GameViewController.swift            |   2 +-
+ 7 files changed, 81 insertions(+), 45 deletions(-)
+
+commit 5e83d4bc663a3c478901fc2504bb8ee7f90c2830
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Wed Dec 4 11:29:28 2019 -0500
+
+    test commit
+
+ cs441_Project7/GameScene.swift | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 107a14d3070ce2e226746531984f40b234ab5d2a
+Author: twellington23 <42653953+twellington23@users.noreply.github.com>
+Date:   Wed Dec 4 11:28:27 2019 -0500
+
+    Create README.md
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit d0cceb7c350b42bc3d4f66b571cb25bec12d096e
+Author: Tyler Wellington <twellin1@binghamton.edu>
+Date:   Wed Dec 4 11:19:06 2019 -0500
+
+    Initial Commit
+
+ cs441_Project7.xcodeproj/project.pbxproj           | 597 +++++++++++++++++++++
+ .../project.xcworkspace/contents.xcworkspacedata   |   7 +
+ .../xcshareddata/IDEWorkspaceChecks.plist          |   8 +
+ .../xcschemes/xcschememanagement.plist             |  14 +
+ cs441_Project7/Actions.sks                         | Bin 0 -> 1892 bytes
+ cs441_Project7/AppDelegate.swift                   |  41 ++
+ .../AppIcon.appiconset/Contents.json               |  98 ++++
+ cs441_Project7/Assets.xcassets/Contents.json       |   6 +
+ cs441_Project7/Base.lproj/LaunchScreen.storyboard  |  25 +
+ cs441_Project7/Base.lproj/Main.storyboard          |  24 +
+ cs441_Project7/GameScene.sks                       | Bin 0 -> 4694 bytes
+ cs441_Project7/GameScene.swift                     |  89 +++
+ cs441_Project7/GameViewController.swift            |  50 ++
+ cs441_Project7/Info.plist                          |  47 ++
+ cs441_Project7Tests/Info.plist                     |  22 +
+ cs441_Project7Tests/cs441_Project7Tests.swift      |  34 ++
+ cs441_Project7UITests/Info.plist                   |  22 +
+ cs441_Project7UITests/cs441_Project7UITests.swift  |  43 ++
+ 18 files changed, 1127 insertions(+)
