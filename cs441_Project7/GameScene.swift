@@ -179,7 +179,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(prevScoreLabel)
         playing = false
         
-        ship.position = CGPoint(x: 0, y : -500)
+        ship.position = CGPoint(x: 0, y : -450)
         ship.zPosition = 1
         ship.name = "ship"
         ship.physicsBody = SKPhysicsBody(rectangleOf: ship.size)
