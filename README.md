@@ -1,2 +1,6 @@
 # cs441_Project7
-This iOS app was made using xCode to satisfy the requirements of Project 7 for CS441.
+This iOS app was made using xCode to satisfy the requirements of Project 7 for CS441. I used various SpriteKit tools including SKSpriteNodes, SKActions, and SKPhysics to make this game look and function as intended. 
+
+In this game ("Ship Shoot") the player controls a spaceship and the goal is to survive as long as possible. The ship will continuously shoot lasers and can be moved laterally by touching the screen and moving left or right. When the game first starts, a title screen will appear, displaying the title and the players previous score. The game begins once the player touches the screen.
+
+When the game begins, the ship will begin shooting lasers, and enemy ships will begin to spawn. One of three different enemy ships will spawn once every second at a random x location and will move in a straight path down the screen at a random speed. The player will also start to earn points (60 per second) when the game begins. If a laser makes contact with an enemy ship it will explode and the player will gain 250 points. There is no penalty for letting an enemy ship reach the bottom of the screen, but if an enemy ship hits the player's ship, both ships will explode and the game resets. When the game resets it will remove all enemy ships from the screen and display the title screen again with the previous score.
