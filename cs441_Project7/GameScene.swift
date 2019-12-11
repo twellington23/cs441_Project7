@@ -220,6 +220,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             removeAction(forKey: "pew")
             removeAction(forKey: "bad")
             //get rid of all enemy ships on screen
+            for child in self.children {
+                if (child.name == "e1" || child.name == "e2" || child.name == "e3") {
+                    destroy(object: child)
+                }
+            }
             
             let ds = SKSpriteNode(imageNamed: "ds")
             ds.position = point
