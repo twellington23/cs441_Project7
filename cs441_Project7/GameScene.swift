@@ -70,7 +70,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func moveBackground(){
         let gameBG1 = SKSpriteNode(imageNamed: "space")
         let gameBG2 = SKSpriteNode(imageNamed: "space")
-        
         gameBG1.zPosition = -3
         gameBG1.position = CGPoint(x: 75, y: -500)
         gameBG2.zPosition = -2
@@ -78,8 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(gameBG1)
         addChild(gameBG2)
         
-        let duration = CGFloat(8.0)
-        
+        let duration = CGFloat(10.0)
         let move = SKAction.move(to: CGPoint(x: 75, y: -5000), duration: TimeInterval(duration))
         let finish = SKAction.removeFromParent()
         let move2 = SKAction.move(to: CGPoint(x: 75, y: -5000), duration: TimeInterval(duration))
@@ -105,7 +103,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func shootLaser(){
         let laser = SKSpriteNode(imageNamed: "laser")
-        
         laser.zPosition = 0
         laser.position = CGPoint(x: ship.position.x, y: -495)
         laser.physicsBody = SKPhysicsBody(rectangleOf: laser.size)
