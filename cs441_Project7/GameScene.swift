@@ -24,7 +24,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     let wtext = SKSpriteNode(imageNamed: "wtext")
-    let ytext = SKSpriteNode(imageNamed: "ytext")
     let gtext = SKSpriteNode(imageNamed: "gtext")
     let bg1 = SKSpriteNode(imageNamed: "space")
     let bg2 = SKSpriteNode(imageNamed: "space")
@@ -91,15 +90,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func titleDisplay(){
-        wtext.position = CGPoint(x: 20, y: 120)
-        wtext.zPosition = 2
-        ytext.position = CGPoint(x: 10, y: 110)
-        ytext.zPosition = 1
+        wtext.position = CGPoint(x: 5, y: 110)
+        wtext.zPosition = 1
         gtext.position = CGPoint(x: 0, y: 100)
         gtext.zPosition = 0
         
         addChild(wtext)
-        addChild(ytext)
         addChild(gtext)
     }
     
@@ -169,7 +165,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func startGame(){
         playing = true
         wtext.removeFromParent()
-        ytext.removeFromParent()
         gtext.removeFromParent()
         prevScoreLabel.removeFromParent()
         score = 0
@@ -227,6 +222,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (object.name == "ship") {
             removeAction(forKey: "pew")
             removeAction(forKey: "bad")
+            //get rid of all enemy ships on screen
             
             let ds = SKSpriteNode(imageNamed: "ds")
             ds.position = point
