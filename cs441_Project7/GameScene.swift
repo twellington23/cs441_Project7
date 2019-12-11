@@ -207,22 +207,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let point = CGPoint(x: object.position.x, y: object.position.y)
         object.removeFromParent()
         
-//        let d1 = SKSpriteNode(imageNamed: "d1")
-//        d1.position = point
-//        d1.zPosition = 1
-//        addChild(d1)
-//        let d2 = SKSpriteNode(imageNamed: "d2")
-//        d2.position = point
-//        d2.zPosition = 1
-//        addChild(d2)
-//        let d3 = SKSpriteNode(imageNamed: "d3")
-//        d3.position = point
-//        d3.zPosition = 1
-//        addChild(d3)
-//
-//        d1.removeFromParent()
-//        d2.removeFromParent()
-//        d3.removeFromParent()
+        if (object.name == "e1" || object.name == "e2" || object.name == "e3") {
+            let d = SKSpriteNode(imageNamed: "d")
+            d.position = point
+            d.zPosition = 1
+            addChild(d)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                d.removeFromParent()
+            }
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
