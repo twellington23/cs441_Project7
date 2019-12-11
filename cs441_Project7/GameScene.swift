@@ -16,6 +16,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             scoreLabel.text = "\(score)"
         }
     }
+    var prevScoreLabel: SKLabelNode!
+    var prevScore = 0 {
+        didSet {
+            prevScoreLabel.text = "Score: \(prevScore)"
+        }
+    }
     
     let wtext = SKSpriteNode(imageNamed: "wtext")
     let ytext = SKSpriteNode(imageNamed: "ytext")
