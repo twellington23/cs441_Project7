@@ -48,6 +48,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPoint(x: -235, y: 575)
         scoreLabel.zPosition = 5
 //        addChild(scoreLabel)
+        prevScoreLabel = SKLabelNode(fontNamed: "Courier")
+        prevScoreLabel.text = "0"
+        prevScoreLabel.position = CGPoint(x: 0, y: -100)
+        prevScoreLabel.zPosition = 5
         
         planet.position = CGPoint(x: 110, y: 450)
         planet.zPosition = -1
@@ -95,11 +99,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func titleDisplay(){
-        wtext.position = CGPoint(x: 20, y: 20)
+        wtext.position = CGPoint(x: 20, y: 120)
         wtext.zPosition = 2
-        ytext.position = CGPoint(x: 10, y: 10)
+        ytext.position = CGPoint(x: 10, y: 110)
         ytext.zPosition = 1
-        gtext.position = CGPoint(x: 0, y: 0)
+        gtext.position = CGPoint(x: 0, y: 100)
         gtext.zPosition = 0
         
         addChild(wtext)
@@ -179,6 +183,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wtext.removeFromParent()
         ytext.removeFromParent()
         gtext.removeFromParent()
+        prevScoreLabel.removeFromParent()
         score = 0
         addChild(scoreLabel)
         
@@ -189,8 +194,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func resetGame(){
 //        removeAction(forKey: "pew")
 //        removeAction(forKey: "bad")
+        playing = false
+        prevScore = score
         scoreLabel.removeFromParent()
         titleDisplay()
+        addChild(prevScoreLabel)
         playing = false
         
         ship.position = CGPoint(x: 0, y : -500)
