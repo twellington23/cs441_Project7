@@ -47,7 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "0"
         scoreLabel.position = CGPoint(x: -235, y: 575)
         scoreLabel.zPosition = 5
-//        addChild(scoreLabel)
+
         prevScoreLabel = SKLabelNode(fontNamed: "Courier")
         prevScoreLabel.text = "0"
         prevScoreLabel.position = CGPoint(x: 0, y: -100)
@@ -57,14 +57,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         planet.zPosition = -1
         planet.name = "planet"
         addChild(planet)
-        
-//        ship.position = CGPoint(x: 0, y : -500)
-//        ship.zPosition = 1
-//        ship.name = "ship"
-//        ship.physicsBody = SKPhysicsBody(rectangleOf: ship.size)
-//        ship.physicsBody?.isDynamic = false
-//        ship.physicsBody!.contactTestBitMask = ship.physicsBody!.collisionBitMask
-//        addChild(ship)
         
         fire = SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)]))
         spawn = SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.0)]))
@@ -175,10 +167,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func startGame(){
-//        scoreLabel = SKLabelNode(fontNamed: "Courier")
-//        scoreLabel.text = "0"
-//        scoreLabel.position = CGPoint(x: -235, y: 575)
-//        scoreLabel.zPosition = 5
         playing = true
         wtext.removeFromParent()
         ytext.removeFromParent()
@@ -192,8 +180,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func resetGame(){
-//        removeAction(forKey: "pew")
-//        removeAction(forKey: "bad")
         playing = false
         prevScore = score
         scoreLabel.removeFromParent()
@@ -221,8 +207,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (object1.name == "ship" && (object2.name == "e1" || object2.name == "e2" || object2.name == "e3")) {
             destroy(object: object2)
             destroy(object: object1)
-            //score = 0
-            //resetGame()
         }
     }
     
