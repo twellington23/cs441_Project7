@@ -58,7 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(planet)
         
         fire = SKAction.repeatForever(SKAction.sequence([SKAction.run(shootLaser), SKAction.wait(forDuration: 0.3)]))
-        spawn = SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 1.0)]))
+        spawn = SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemies), SKAction.wait(forDuration: 0.6)]))
         
         if(playing == false){
             resetGame()
@@ -122,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let e3 = SKSpriteNode(imageNamed: "renemy")
         let enemy = Int.random(in: 1 ... 3)
         let num = Int.random(in: -4 ... 4)
-        let speed = CGFloat.random(in: 1.0 ... 4.0)
+        let speed = CGFloat.random(in: 2.0 ... 4.0)
         
         e1.position = CGPoint(x: 65 * num, y: 750)
         e1.zPosition = 1
@@ -192,7 +192,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (object1.name == "laser" && (object2.name == "e1" || object2.name == "e2" || object2.name == "e3")) {
             destroy(object: object2)
             object1.removeFromParent()
-
             score += 250
         }
         
@@ -219,9 +218,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (object.name == "ship") {
             removeAction(forKey: "pew")
             removeAction(forKey: "bad")
-            //get rid of all enemy ships on screen
+            //get rid of all objects on screen
             for child in self.children {
-                if (child.name == "e1" || child.name == "e2" || child.name == "e3") {
+                if (child.name == "e1" || child.name == "e2" || child.name == "e3" || child.name == "laser") {
                     destroy(object: child)
                 }
             }
